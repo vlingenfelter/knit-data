@@ -4,6 +4,7 @@
 	import IndSelector from '../components/IndSelector.svelte';
 	import DepSelector from '../components/DepSelector.svelte';
 	import ColorSelector from '../components/ColorSelector.svelte';
+	import NumberColors from '../components/NumberColors.svelte';
 	import { theme, columns } from '../stores';
 
 	// styling
@@ -11,6 +12,7 @@
 	$: h1 = `pt-4 text-3xl text-${$theme}-h1 font-display tracking-wide`;
 	$: h2 = `pb-2 mt-6 pt-2 text-xl text-${$theme}-p font-mono tracking-wide border-t-2 border-solid border-${$theme}-accent`;
 	$: stepSpan = `text-${$theme}-accent font-display`;
+	$: anchorStyle = `font-mono bg-transparent text-xl hover:bg-${$theme}-h1 text-${$theme}-p hover:text-${$theme}-background  py-2 px-4 border-2 rounded border-dashed border-${$theme}-h1`;
 
 </script>
 
@@ -59,14 +61,22 @@
 	</div>
 </div>
 
-<h2 class={h2}><span class={stepSpan}>Step 4:</span> Choose a color scale for your scarf</h2>
+<h2 class={h2}><span class={stepSpan}>Step 4:</span> Choose a color palette for your scarf</h2>
 
 <p class={p}>
-	If you want your pattern generated to accomodate a specific needle size or yarn weight, this is your place! You can adjust the options below to suit your needs. 
+	If you want your pattern generated to accomodate a specific needle size or yarn weight, this is your place! You can adjust the options below to suit your needs. First pick the color palette that you want to use to visualize your data.
 </p>
 
 <div class="py-4 flex justify-center">
 	<ColorSelector />
+</div>
+
+<p class={p}>
+	Next, pick how many colors you want to use. After the pattern is generated, it'll tell you how much yarn of each color you will need to make your scarf. 
+</p>
+
+<div class="py-4 flex justify-center">
+	<NumberColors />
 </div>
 
 <h2 class={h2}><span class={stepSpan}>Step 5:</span> Tell me about your knitting preferences (optional)</h2>
@@ -74,4 +84,8 @@
 <p class={p}>
 	If you want your pattern generated to accomodate a specific needle size or yarn weight, this is your place! You can adjust the options below to suit your needs. If you do not change any of these settings, the pattern will be generated for worsted weight yarn.
 </p>
+
+<div class="flex justify-center">
+	<a class={anchorStyle} href="./pattern">Generate your pattern!</a>
+</div>
 

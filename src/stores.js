@@ -6,6 +6,9 @@ export const theme = writable('light');
 // these are the names of the columns that 
 export const indColName = writable('');
 export const depColName = writable('');
+export const dataset = writable([]);
 
 export const csvString = writable('');
 export const columns = writable([]);
+export const n = writable(0);
+export const colorPalette = writable('');

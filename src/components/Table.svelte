@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { theme, csvString, columns } from '../stores';
+	import { theme, csvString, columns, dataset } from '../stores';
 	import { defaultData } from '../data';
 	import { get } from 'svelte/store';
 
@@ -12,6 +12,7 @@
 	$: if ($csvString === "default") {
 		data = defaultData;
 		data.columns = ["DATE", "PRCP", "TMAX", "TMIN"];
+		dataset.set(data);
 
 		columns.set(data.columns);
 
@@ -21,6 +22,7 @@
 	} else if (get(csvString).length > 1) {
 		data = d3.csvParse(get(csvString));
 		columns.set(data.columns);
+		dataset.set(data);
 
 		console.log(data);
 		head = data.slice(0,5);

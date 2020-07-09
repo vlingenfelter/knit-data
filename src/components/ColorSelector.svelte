@@ -1,10 +1,15 @@
 <script>
-	import { theme, columns } from '../stores';
+	import { theme, columns, colorPalette } from '../stores';
 	import ColorRamp from './ColorRamp.svelte';
 
 	let colors = ["Blues", "Greens", "Greys", "Oranges", "Purples", "Reds", "RdYlBu", "PiYG", "Spectral"];
   let labels = {"Blues":"Blues", "Greens":"Greens", "Greys":"Greys", "Oranges":"Oranges", "Purples":"Purples", "Reds":"Reds", "RdYlBu":"Red -> Blue","PiYG": "Pink -> Green",  "Spectral":"Rainbow"};
   let colorScale;
+
+  $: { 
+    colorPalette.set(colorScale); 
+    console.log(colorScale);
+  }
 
 	$: label = `font-mono text-${$theme}-p pl-2`;
   $: p = `font-mono text-${$theme}-p`;

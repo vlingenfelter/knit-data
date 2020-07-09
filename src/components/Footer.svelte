@@ -20,7 +20,7 @@
   }
 
   const sourceLink = {
-    href: 'https://github.com/vlingenfelter/tidal-wave',
+    href: 'https://github.com/vlingenfelter/knit-data',
     text: 'Source'
   }
 
