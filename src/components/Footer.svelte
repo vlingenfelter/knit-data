@@ -3,8 +3,7 @@
   import { theme } from '../stores';
   import { get } from 'svelte/store';
 
-  let footerStyles = `font-mono flex items-center justify-center flex-wrap pt-8`;
-
+  const footerStyles = `font-mono flex items-center justify-center flex-wrap pt-8`;
   $: pStyles = `font-mono text-center text-${$theme}-p`;
   $: button = `border-b-2 border-dashed border-${$theme}-h1`
   $: isDark = (get(theme) === 'dark');
@@ -24,6 +23,7 @@
     text: 'Source'
   }
 
+  // change theme when this button is clicked
   const toggleTheme = () => {
     if (get(theme) === "dark") {
       console.log('light mode');

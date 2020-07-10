@@ -1,18 +1,19 @@
 <script>
 	import { theme, columns, n } from '../stores';
 
+	// bound to the number selector
 	let a = 2;
 
+	// when a is changed, update global store $n
 	$: { 
 		n.set(a); 
-		console.log(a);
-		console.log($n);
 	} 
 
 	$: labelStyle = `bg-transparent text-${$theme}-p font-semibold py-2 px-4 border-2 rounded border-dashed border-${$theme}-h1`;
 	$: p = `font-mono text-${$theme}-p`;
 	$: bracket = `text-${$theme}-h1`;
 </script>
+
 
 {#if $columns.length > 1}
 	<label>

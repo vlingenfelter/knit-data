@@ -1,6 +1,7 @@
 <script>
-	import { theme, n, columns, colorPalette, indColName, depColName } from '../stores';
+	import { theme, n, columns, colorPalette, depColName, patternBool, catOrNum } from '../stores';
 	import { get } from 'svelte/store';
+	import { onMount } from 'svelte';
 	import Link from '../components/Link.svelte';
 	import ScarfVisual from '../components/ScarfVisual.svelte';
 
@@ -8,6 +9,12 @@
 	$: h1 = `py-4 text-3xl text-${$theme}-h1 font-display tracking-wide`;
 	$: h2 = `py-2 text-xl text-${$theme}-accent font-display tracking-wide border-t-2 border-solid border-${$theme}-accent`;
 	$: anchorStyle = `hover:underline text-${$theme}-h1`;
+
+	onMount(() => {
+		if (($columns.length >= 1) && (depColName != "")) {
+			patternBool.set(true);
+		} 
+	});
 
 </script>
 
@@ -19,14 +26,13 @@
 	Your Pattern
 </h1>
 
-{#if $columns.length < 1}
+{#if $patternBool && $catOrNum == "Numerical"}
+	<p class={p}>Numerical Pattern</p>
+	<ScarfVisual />
+{:else if $patternBool && $catOrNum == "Categorical"}
+	<p class={p}>Categorical Pattern</p>
+{:else}
 	<h2 class={h2}>Whoops!</h2>
 
 	<p class={p}> It looks like you haven't generated a pattern yet. That's okay, you can <a class={anchorStyle} href="./generate">click here to generate one!</a></p>
-{:else}
-	<h2 class={h2}>Materials</h2>
-
-	<p class={p}> {get(n)} {get(colorPalette)} {get(columns)}</p>
-
-	<ScarfVisual />
 {/if}

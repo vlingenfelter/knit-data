@@ -1,9 +1,14 @@
 <script>
 	import { theme, indColName } from '../stores';
 
+	// options for the dropdown menu
 	export let options = [];
+
+	// bound to options, updates to selected option
 	let selected;
 
+	// when a column name is selected, update global store $indColName
+	// actually is fired on blur, not on change
 	const onChange = () => {
 		indColName.set(selected);
 	}
@@ -16,7 +21,7 @@
 </script>
 
 {#if options.length >= 1}
-	<div class="p-4 flex flex-row items-center">
+	<div class="p-4 flex flex-col lg:flex-row items-center">
 		<p class={label}>Select timeseries column:  </p>
 		<div class="inline-block relative w-40">
 			<select on:blur={onChange} class={select} bind:value={selected}>

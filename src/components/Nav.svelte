@@ -3,7 +3,7 @@
 
 	export let segment;
 
-	let nav = `flex items-center justify-between flex-wrap pb-4`;
+	const nav = `flex items-center justify-between flex-wrap pb-4`;
 	$: anchorStyle = `font-mono text-${$theme}-p hover:text-${$theme}-h1 text-xl border-b-2 border-transparent hover:border-solid hover:border-${$theme}-h1`;
 	$: selected = `font-mono text-${$theme}-p text-xl border-b-2 border-dashed hover:border-solid border-${$theme}-h1`;
 </script>

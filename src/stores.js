@@ -1,14 +1,26 @@
 import { writable, readable } from 'svelte/store';
 
+// this keeps track of whether we are on light mode or dark mode
+// is either "dark" or "light"
 export const theme = writable('light');
 
-// variable names
-// these are the names of the columns that 
+// these are the names of the columns that represent dependent and independent variables
 export const indColName = writable('');
 export const depColName = writable('');
-export const dataset = writable([]);
 
-export const csvString = writable('');
-export const columns = writable([]);
+// this is the dataset used to generate scarf pattern
+export const dataset = writable([]);
+export const csvString = writable(''); // csv for dataset in one long string
+export const columns = writable([]); // names of columns for the csv
+
+// is the data categorical or numerical?
+export const catOrNum = writable('');
+
+// the number of colors for the scarf
 export const n = writable(0);
+
+// the name of the ColorBrewer color palette to generate knitting pattern
 export const colorPalette = writable('');
+
+// keeps track of whether pattern has been made
+export const patternBool = writable(false);
