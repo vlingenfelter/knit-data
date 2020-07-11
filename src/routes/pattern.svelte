@@ -4,6 +4,8 @@
 	import { onMount } from 'svelte';
 	import Link from '../components/Link.svelte';
 	import ScarfVisual from '../components/ScarfVisual.svelte';
+	import PatternTemplate from '../components/PatternTemplate.svelte';
+	import CategoricalPattern from '../components/CategoricalPattern.svelte';
 
 	$: p = `font-mono text-${$theme}-p`;
 	$: h1 = `py-4 text-3xl text-${$theme}-h1 font-display tracking-wide`;
@@ -27,12 +29,17 @@
 </h1>
 
 {#if $patternBool && $catOrNum == "Numerical"}
+	<PatternTemplate />
 	<p class={p}>Numerical Pattern</p>
 	<ScarfVisual />
 {:else if $patternBool && $catOrNum == "Categorical"}
 	<p class={p}>Categorical Pattern</p>
+	<PatternTemplate />
+	<CategoricalPattern />
 {:else}
 	<h2 class={h2}>Whoops!</h2>
 
 	<p class={p}> It looks like you haven't generated a pattern yet. That's okay, you can <a class={anchorStyle} href="./generate">click here to generate one!</a></p>
+
+	<PatternTemplate />
 {/if}

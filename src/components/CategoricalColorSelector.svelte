@@ -1,5 +1,5 @@
 <script>
-	import { theme, depColName, dataset, colorPalette, catOrNum } from '../stores';
+	import { theme, depColName, dataset, colorPalette, catOrNum, catColors } from '../stores';
 	import { get } from 'svelte/store';
 
 	const thisData = get(dataset); // the dataset needed
@@ -13,6 +13,9 @@
 	for (let i = 0; i < categories.length; i++) {
 		colorLookup[categories[i]] = brewerPaired[i];
 	}
+	console.log(colorLookup);
+
+	$catColors = colorLookup;
 
 	let colors = [];
 
@@ -34,7 +37,7 @@
 	{#each categories as category}
 	<div class="flex py-2 flex-row">
 		<label class={label} for={category}>{replaceBlank(category)}</label>
-	  <input type="color" id={category} name={category} value={colorLookup[category]}>
+	  <input type="color" id={category} name={category} value={$catColors[category]}>
 	</div>
   {/each}
 </div>

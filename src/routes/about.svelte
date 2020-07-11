@@ -2,7 +2,7 @@
 	import { theme } from '../stores';
 	import Link from '../components/Link.svelte';
 
-	$: p = `font-mono text-${$theme}-p`;
+	$: p = `font-mono text-${$theme}-p pb-4`;
 	$: h1 = `py-4 text-3xl text-${$theme}-h1 font-display tracking-wide`;
 	$: h2 = `py-2 text-xl text-${$theme}-accent font-display tracking-wide border-t-2 border-solid border-${$theme}-accent`;
 
@@ -24,6 +24,10 @@
 <h1 class={h1}>
 	About this project
 </h1>
+
+<h2 class={h2}>Special Thanks</h2>
+
+<p class={p}>Name that color, Svelte, d3, Robert Gove</p>
 
 <h2 class={h2}>About me</h2>
 

@@ -21,6 +21,11 @@ export const n = writable(0);
 
 // the name of the ColorBrewer color palette to generate knitting pattern
 export const colorPalette = writable('');
+// an object that stories categorical colors 
+export const catColors = writable({});
 
 // keeps track of whether pattern has been made
 export const patternBool = writable(false);
+
+export const scarfLength = writable("");
+export const scarfWidth = writable("");

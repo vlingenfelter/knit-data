@@ -30,7 +30,7 @@
 		fileName = "JP Weather Data.csv"; // display different file name
 	}
 
-	$: labelStyle = `bg-transparent hover:bg-${$theme}-h1 text-${$theme}-p hover:text-${$theme}-background font-semibold py-2 px-4 border-2 rounded border-dashed border-${$theme}-h1`;
+	$: labelStyle = `bg-transparent hover:bg-${$theme}-h1 text-${$theme}-p hover:text-${$theme}-background font-semibold py-2 px-4 border-2 rounded border-dashed border-${$theme}-h1 cursor-pointer`;
 	$: p = `font-mono px-4 text-${$theme}-p`;
 	$: fileNameStyle = `font-mono text-${$theme}-p break-words`;
 

@@ -1,7 +1,9 @@
 <script>
   import Link from './Link.svelte';
+  import ThemeCookie from './ThemeCookie.svelte';
   import { theme } from '../stores';
   import { get } from 'svelte/store';
+  import { select } from 'd3-selection';
 
   const footerStyles = `font-mono flex items-center justify-center flex-wrap pt-8`;
   $: pStyles = `font-mono text-center text-${$theme}-p`;
@@ -28,8 +30,11 @@
     if (get(theme) === "dark") {
       console.log('light mode');
       theme.set("light");
+      select('body').attr('class', 'bg-light-background'); 
+
     } else {
       console.log('dark mode');
+      select('body').attr('class', 'bg-dark-background'); 
       theme.set("dark");
     }
   }
