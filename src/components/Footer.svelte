@@ -44,7 +44,7 @@
 <footer class={footerStyles}>
   <p class={pStyles}>Made with ❤️ in Boston, MA.
     <br >
-    Powered by <Link props={svelteLink} /> and <Link props={d3Link} />
+    Powered by <Link props={svelteLink} />
     <br >
     <Link props={sourceLink} />
     <br>

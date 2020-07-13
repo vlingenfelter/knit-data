@@ -3,8 +3,9 @@
 	import { theme, csvString, columns, dataset } from '../stores';
 	import { defaultData } from '../data';
 	import { get } from 'svelte/store';
+	import { csvParse } from 'd3-dsv';
 
-	import * as d3 from 'd3';
+	// import * as d3 from 'd3';
 
 	let data = [];
 	let head = [];
@@ -13,18 +14,13 @@
 		data = defaultData;
 		data.columns = ["DATE", "PRCP", "TMAX", "TMIN"];
 		dataset.set(data);
-
 		columns.set(data.columns);
-
-		console.log(data);
 		head = data.slice(0,5);
 
 	} else if (get(csvString).length > 1) {
-		data = d3.csvParse(get(csvString));
+		data = csvParse(get(csvString));
 		columns.set(data.columns);
 		dataset.set(data);
-
-		console.log(data);
 		head = data.slice(0,5);
 	}
 

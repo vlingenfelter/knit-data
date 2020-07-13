@@ -1,5 +1,5 @@
 <script>
-	import * as d3 from 'd3';
+	import * as d3chromatic from 'd3-scale-chromatic';
 	import { onMount } from 'svelte';
 	import { theme } from '../stores';
 
@@ -10,30 +10,18 @@
 	export let n = 5;
 
 	// an array of length n for each color block
-	let blocks = Array.apply(null, Array(n)).map(function (x, i) { return i + 1; })
+	let blocks = Array.apply(null, Array(n)).map(function (x, i) { return i + 1; });
+	let colors = d3chromatic[`scheme${palette}`][n];
 
-	// element to bind d3 to
-	let el;
-
-	// color scale function
-	// int => rgb value
-	let color = d3.scaleThreshold()
-	    .domain(d3.range(1, n+1))
-	    .range(d3[`scheme${palette}`][n+1]);
-
-	// on mount:
-	// for each block in block make a div, color according to color scale
-	onMount(() => {
-		d3.select(el)
-			.selectAll('div')
-			.data(blocks)
-			.enter().append('div')
-			.style('height', '1em')
-			.style('width', '1em')
-			.style('background-color', d => color(d));
-	});
+	const colorScale = (i) => {
+		return `background-color: ${colors[i]};`;
+	}
 
 	$: p = `font-mono text-${$theme}-p pr-2`;
 </script>
 
-<div class="flex flex-row" bind:this={el}></div>
+<div class="flex flex-row">
+	{#each colors as color,i}
+		<div class="h-4 w-4" style={colorScale(i)}></div>
+	{/each}
+</div>

@@ -3,7 +3,8 @@
 	import { ntc } from '../ntc';
 	import { get } from 'svelte/store';
 	import { needleSize } from '../knit';
-	import * as d3 from 'd3';
+	import { scaleQuantile } from 'd3-scale';
+	import * as d3chromatic from 'd3-scale-chromatic';
 
 	let list = ["red", "blue"];
 	let colorScale;
@@ -18,11 +19,11 @@
 	const m = get(multiplier);
 
 	if (get(catOrNum) == "Numerical") {
-		list = d3[`scheme${$colorPalette}`][$n];
+		list = d3chromatic[`scheme${$colorPalette}`][get(n)];
 
-		colorScale = d3.scaleQuantile()
+		colorScale = scaleQuantile()
 	    .domain(colOfInterest)
-	    .range(d3[`scheme${get(colorPalette)}`][get(n)]);
+	    .range(d3chromatic[`scheme${get(colorPalette)}`][get(n)]);
 
 	  let breaks = colorScale.quantiles();
 	  legendLabels.push(`Less than ${breaks[0]}`);
@@ -34,7 +35,7 @@
 
 	 	colorArray = colOfInterest.map(d => colorScale(d));
 		rowGuide = [[colorArray[0], 1]];
-		numRowsColor = d3[`scheme${get(colorPalette)}`][get(n)].reduce((a,b)=> (a[b]=0,a),{});
+		numRowsColor = list.reduce((a,b)=> (a[b]=0,a),{});
 	}	else {
 		let colorLookupTemp = get(catColors);
 		colorArray = colOfInterest.map(d => colorLookupTemp[d]);
