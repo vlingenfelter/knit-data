@@ -13,11 +13,8 @@
 	for (let i = 0; i < categories.length; i++) {
 		colorLookup[categories[i]] = brewerPaired[i];
 	}
-	console.log(colorLookup);
 
 	$catColors = colorLookup;
-
-	let colors = [];
 
 	const replaceBlank = (string) => {
 		if (string == "") {
@@ -26,6 +23,11 @@
 			return string;
 		}
 	}
+
+	const onChange = (color) => {
+		$catColors[color.target.name] = color.target.value;
+	}
+
 
 	$: label = `font-mono text-${$theme}-p pr-2`;
 	$: p = `font-mono text-${$theme}-p`;
@@ -37,7 +39,7 @@
 	{#each categories as category}
 	<div class="flex py-2 flex-row">
 		<label class={label} for={category}>{replaceBlank(category)}</label>
-	  <input type="color" id={category} name={category} value={$catColors[category]}>
+	  <input type="color" id={category} name={category} on:change={onChange} value={$catColors[category]}>
 	</div>
   {/each}
 </div>

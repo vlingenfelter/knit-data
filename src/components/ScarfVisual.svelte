@@ -18,6 +18,24 @@
 	    .domain(colOfInterest)
 	    .range(d3[`scheme${get(colorPalette)}`][get(n)]);
 
+	const colorArray = colOfInterest.map(d => colorScale(d));
+	const rowGuide = [[colorArray[0], 1]];
+	let numRowsColor = d3[`scheme${get(colorPalette)}`][get(n)].reduce((a,b)=> (a[b]=0,a),{});
+
+	for (let i=1; i < colorArray.length; i++) {
+		const colorI = colorScale(colOfInterest[i])
+		numRowsColor[colorI]++;
+
+		if (colorI == rowGuide[rowGuide.length-1][0]) {
+			rowGuide[rowGuide.length-1][1]++;
+		} else {
+			rowGuide.push([colorI, 1]);
+		}
+	}
+
+	console.log(rowGuide);
+	console.log(numRowsColor);
+
 	// on mount
 	onMount(() => {
 		d3.select(el)

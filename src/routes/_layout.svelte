@@ -14,16 +14,20 @@
 <div class={bodyStyles}>
 	<div class="flex justify-center">
 		<div class="max-w-2xl p-4">
-			<h1 class={h1}>
-				<a href="."><span class={accent}>data pattern,</span> knitting pattern</a>
-			</h1>
-			<Nav {segment}/>
+			<div class="print:hidden">
+				<h1 class={h1}>
+					<a href="."><span class={accent}>data pattern,</span> knitting pattern</a>
+				</h1>
+				<Nav {segment}/>
+			</div>
 
 			<main>
 				<slot></slot>
 			</main>
 
-			<Footer />
+			<div class="print:hidden">
+				<Footer />
+			</div>
 		</div>
 	</div>
 </div>

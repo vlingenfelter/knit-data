@@ -3,7 +3,8 @@
 
 	// bound to the number selector
 	let a = 2;
-
+	n.set(2);
+	
 	// when a is changed, update global store $n
 	$: { 
 		n.set(a); 

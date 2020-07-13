@@ -52,7 +52,7 @@
 	<input class="inputfile" type="file" id="file" bind:files>
 	<label for="file" class={labelStyle}>Choose a csv</label>
 	<p class={p}>or</p>
-	<button class={labelStyle} on:click={useDefault}>Use default</button>
+	<button class={labelStyle} on:click={useDefault}>Use sample data</button>
 </div>
 
 {#if fileName.length > 0}

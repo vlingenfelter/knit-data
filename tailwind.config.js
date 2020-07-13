@@ -20,6 +20,9 @@ module.exports = {
     	fontFamily: {
 	    	'display': ['Rubik', 'sans-serif'],
 	    },
+      screens: {
+        'print': {'raw': 'print'},
+      },
     },
   },
   variants: {},

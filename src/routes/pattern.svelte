@@ -21,7 +21,7 @@
 </script>
 
 <svelte:head>
-	<title>About - Knit your data</title>
+	<title>Your Pattern - Knit your data</title>
 </svelte:head>
 
 <h1 class={h1}>
@@ -30,10 +30,8 @@
 
 {#if $patternBool && $catOrNum == "Numerical"}
 	<PatternTemplate />
-	<p class={p}>Numerical Pattern</p>
 	<ScarfVisual />
 {:else if $patternBool && $catOrNum == "Categorical"}
-	<p class={p}>Categorical Pattern</p>
 	<PatternTemplate />
 	<CategoricalPattern />
 {:else}
@@ -41,5 +39,4 @@
 
 	<p class={p}> It looks like you haven't generated a pattern yet. That's okay, you can <a class={anchorStyle} href="./generate">click here to generate one!</a></p>
 
-	<PatternTemplate />
 {/if}
