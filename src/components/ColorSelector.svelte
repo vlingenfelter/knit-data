@@ -1,5 +1,5 @@
 <script>
-	import { theme, columns, colorPalette, catOrNum } from '../stores';
+	import { theme, colorPalette, catOrNum } from '../stores';
 	import ColorRamp from './ColorRamp.svelte';
   import NumberColors from './NumberColors.svelte'
   import CategoricalColorSelector from './CategoricalColorSelector.svelte';

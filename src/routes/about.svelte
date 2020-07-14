@@ -29,7 +29,7 @@
 
 <p class={p}>I'm Violet. I love data visualization and knitting. You can check out my <Link props={portfolioLink} /> or my <Link props={ravelryLink} />.</p>
 
-<h2 class={h2}>Special Thanks</h2>
+<!-- <h2 class={h2}>Special Thanks</h2>
 
 <p class={p}>
 	To <b>Robert Gove</b>, for being a data visualization mentor
@@ -37,4 +37,4 @@
 	To <b>Logan Hughes</b>, for being a data visualization mentor
 	<br>
 	To <b>Anna Gartsman</b>, for being a knitting mentor
-</p>
+</p> -->

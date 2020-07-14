@@ -12,5 +12,5 @@
 <h1 class={p}>
 	<span class={span}>👋 Hi there!</span>
 	<br>
-	Do you want to knit a data visualization scarf?
+	Do you want to knit a data visualization scarf? 
 </h1>

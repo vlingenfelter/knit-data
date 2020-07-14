@@ -3,8 +3,10 @@
 	import { scarfWidths, scarfLengths } from '../knit';
 
 	// bound to options, updates to selected option
-	let selectedWidth;
-	let selectedLength;
+	let selectedWidth = "Standard (7-8 inches)";
+	scarfWidth.set(selectedWidth);
+	let selectedLength = "Medium (~70 inches)";
+	scarfLength.set(selectedLength);
 
 	const onWidthChange = () => {
 		scarfWidth.set(selectedWidth);

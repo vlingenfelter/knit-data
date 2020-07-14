@@ -2,8 +2,8 @@
 	import { theme, columns, n } from '../stores';
 
 	// bound to the number selector
-	let a = 2;
-	n.set(2);
+	let a = 3;
+	n.set(3);
 	
 	// when a is changed, update global store $n
 	$: { 
@@ -18,8 +18,8 @@
 
 {#if $columns.length > 1}
 	<label>
-		<input class={labelStyle} type=number bind:value={a} min=2 max=12>
-		<input type=range bind:value={a} min=2 max=12>
+		<input class={labelStyle} type=number bind:value={a} min=3 max=9>
+		<input type=range bind:value={a} min=3 max=9>
 	</label>
 {:else}
 	<div>

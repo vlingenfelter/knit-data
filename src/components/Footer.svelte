@@ -51,4 +51,5 @@
     <br>
     <button on:click={toggleTheme} class={button}>{$theme == 'light' ? 'Dark' : 'Light'} theme</button>
   </p>
+  <ThemeCookie />
 </footer>

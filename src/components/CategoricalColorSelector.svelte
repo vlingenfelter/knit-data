@@ -28,7 +28,6 @@
 		$catColors[color.target.name] = color.target.value;
 	}
 
-
 	$: label = `font-mono text-${$theme}-p pr-2`;
 	$: p = `font-mono text-${$theme}-p`;
 	$: bracket = `text-${$theme}-h1`;

@@ -65,8 +65,6 @@
 		yards.push(y.toFixed(0));
 	}
 
-	console.log(yards);
-
 	const rows = (chunk) => {
 		if (chunk > 1) {
 			return "rows";
@@ -129,13 +127,13 @@
 		</ul> 
 	</div>
 
-	<div class="flex flex-col lg:flex-row pb-4">
+	<div class="flex flex-col lg:flex-row pb-4 lg:items-center">
 		<h3 class={h3}>Needles:</h3>
 		
 		<p class={p}>One pair of straight needles in US #{ yarnNeedleLookup.needle[1] } or size to obtain gauge</p>
 	</div>
 
-	<div class="flex flex-col lg:flex-row pb-4">
+	<div class="flex flex-col lg:flex-row pb-4 lg:items-center">
 		<h3 class={h3}>Gauge:</h3>
 		
 		<p class={p}>{ yarnNeedleLookup.gauge[0] * 4 } stitches and { yarnNeedleLookup.gauge[1] * 4 } rows for 4 inches in stockinette.</p>

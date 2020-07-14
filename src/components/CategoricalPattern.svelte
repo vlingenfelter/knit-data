@@ -1,8 +1,6 @@
 <script>
 	import { theme, depColName, dataset, catColors } from '../stores';
-	import { onMount } from 'svelte';
 	import { get } from 'svelte/store';
-
 
 	// variables needed to generate scarf visual
 	const thisData = get(dataset); // the dataset needed
